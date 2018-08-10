@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace OwinWebFormSample
 {
@@ -11,7 +7,10 @@ namespace OwinWebFormSample
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			if (Container.AsyncIdentifier.Value == Guid.Empty)
+			{
+				throw new Exception("Where is my ID");
+			}
 		}
 	}
 }
