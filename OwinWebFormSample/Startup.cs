@@ -1,8 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
 using OwinWebFormSample;
-using System;
-using System.Threading;
 
 [assembly: OwinStartup(typeof(Startup))]
 
@@ -14,9 +12,7 @@ namespace OwinWebFormSample
 		{
 			app.Use((context, next) =>
 			{
-				AsyncLocal<Guid> identifier = new AsyncLocal<Guid>();
-				identifier.Value = Guid.NewGuid();
-				Container.AsyncIdentifier = identifier;
+				Container.CallId = 5;
 
 				return next.Invoke();
 			});

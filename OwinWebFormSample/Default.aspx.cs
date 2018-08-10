@@ -7,7 +7,7 @@ namespace OwinWebFormSample
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (Container.AsyncIdentifier.Value == Guid.Empty)
+			if (Container.CallId != 5)
 			{
 				throw new Exception("Where is my ID");
 			}
